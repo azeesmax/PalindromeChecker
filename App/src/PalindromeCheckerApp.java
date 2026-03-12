@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * UC3: Palindrome Check Using String Reverse
  *
@@ -6,6 +8,12 @@
  */
 public class PalindromeCheckerApp {
 
+    /**
+     * Application entry point.
+     * First method executed by JVM.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
 
         // Check if user provided input
@@ -32,3 +40,4 @@ public class PalindromeCheckerApp {
         }
     }
 }
+
