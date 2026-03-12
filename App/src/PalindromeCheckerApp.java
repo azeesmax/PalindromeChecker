@@ -1,10 +1,22 @@
 import java.util.*;
 
 /**
- * UC3: Palindrome Check Using String Reverse
+ * PalindromeCheckerApp
  *
- * Goal:
- * Reverse a string and compare with original.
+ * Description: Checks whether a string is a palindrome
+ * using character array comparison with two-pointer technique.
+ *
+ * - Converts string to char array
+ * - Compares characters from both ends
+ * - Stops early if mismatch found
+ *
+ * Key Concepts:
+ * - Arrays
+ * - Two-pointer technique
+ * - Boolean flag logic
+ *
+ * @author Student
+ * @version 1.0
  */
 public class PalindromeCheckerApp {
 
@@ -16,28 +28,38 @@ public class PalindromeCheckerApp {
      */
     public static void main(String[] args) {
 
-        // Check if user provided input
-        if (args.length == 0) {
-            System.out.println("Please provide input string");
-            return;
+        // Declare and initialize the input string
+        String input = "radar";
+
+        // Convert the string into a character array
+        char[] chars = input.toCharArray();
+
+        // Initialize pointer at the beginning of the array
+        int start = 0;
+
+        // Initialize pointer at the end of the array
+        int end = chars.length - 1;
+
+        // Assume the string is palindrome initially
+        boolean isPalindrome = true;
+
+        // Compare characters from both ends moving inward
+        while (start < end) {
+
+            // If mismatch found, it is not a palindrome
+            if (chars[start] != chars[end]) {
+                isPalindrome = false;
+                break;
+            }
+
+            // Move pointers toward center
+            start++;
+            end--;
         }
 
-        String input = args[0];
-        String reversed = "";
-
-        // Reverse using loop
-        for (int i = input.length() - 1; i >= 0; i--) {
-            reversed += input.charAt(i);
-        }
-
-        // Compare strings
-        if (input.equals(reversed)) {
-            System.out.println("Input: " + input);
-            System.out.println("Palindrome: true");
-        } else {
-            System.out.println("Input: " + input);
-            System.out.println("Palindrome: false");
-        }
+        // Display input and result
+        System.out.println("Input: " + input);
+        System.out.println("Is Palindrome? " + isPalindrome);
     }
 }
 
