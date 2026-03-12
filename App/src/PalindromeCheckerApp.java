@@ -1,7 +1,7 @@
+import java.util.*;
+
 /**
- * ================================================================
- * MAIN CLASS - PalindromeCheckerApp
- * ================================================================
+ * UseCasePalindromeChecker
  *
  * Use Case 12: Strategy Pattern for Palindrome Algorithms (Advanced)
  *
@@ -23,6 +23,7 @@ class StackStrategy implements PalindromeStrategy {
         // Normalize input
         String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
 
+        // Create a stack to store characters
         Stack<Character> stack = new Stack<>();
 
         for (char c : normalized.toCharArray()) {
