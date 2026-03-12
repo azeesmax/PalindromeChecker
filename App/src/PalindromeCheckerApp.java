@@ -53,17 +53,14 @@ class PalindromeChecker {
  */
 public class rPalindromeCheckerApp {
 
-    private PalindromeStrategy strategy;
+public class PalindromeCheckerApp {
 
-    public PalindromeCheckerApp() {
-        // Use StackStrategy internally
-        this.strategy = new StackStrategy();
-    }
-
-    public boolean check(String input) {
-        return strategy.check(input);
-    }
-
+    /**
+     * Application entry point.
+     * First method executed by JVM.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
@@ -79,3 +76,4 @@ public class rPalindromeCheckerApp {
         scanner.close();
     }
 }
+
