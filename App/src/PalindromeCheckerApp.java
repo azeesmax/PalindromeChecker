@@ -1,58 +1,11 @@
 import java.util.*;
 
 /**
- * ================================================================
- * MAIN CLASS - UseCase11PalindromeCheckerApp
- * ================================================================
+ * UC3: Palindrome Check Using String Reverse
  *
- * Use Case 11: Object-Oriented Palindrome Service
- *
- * Description:
- * This program checks whether a given string is a palindrome
- * using a separate PalindromeChecker service class.
- *
- * Key Concepts:
- * - Encapsulation
- * - Single Responsibility Principle
+ * Goal:
+ * Reverse a string and compare with original.
  */
-
-import java.util.Scanner;
-import java.util.Stack;
-
-/**
- * PalindromeChecker class encapsulates palindrome logic.
- */
-class PalindromeChecker {
-
-    /**
-     * Checks if the input string is a palindrome.
-     * @param input The string to check
-     * @return true if palindrome, false otherwise
-     */
-    public boolean checkPalindrome(String input) {
-
-        // Normalize input by removing non-alphanumeric and converting to lowercase
-        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        int left = 0;
-        int right = normalized.length() - 1;
-
-        while (left < right) {
-            if (normalized.charAt(left) != normalized.charAt(right)) {
-                return false;
-            }
-            left++;
-            right--;
-        }
-        return true;
-    }
-}
-
-/**
- * Application entry point for UC11.
- */
-public class rPalindromeCheckerApp {
-
 public class PalindromeCheckerApp {
 
     /**
@@ -62,18 +15,29 @@ public class PalindromeCheckerApp {
      * @param args command line arguments
      */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Input: ");
-        String input = scanner.nextLine();
+        // Check if user provided input
+        if (args.length == 0) {
+            System.out.println("Please provide input string");
+            return;
+        }
 
-        PalindromeChecker checker = new PalindromeChecker();
+        String input = args[0];
+        String reversed = "";
 
-        boolean result = checker.checkPalindrome(input);
+        // Reverse using loop
+        for (int i = input.length() - 1; i >= 0; i--) {
+            reversed += input.charAt(i);
+        }
 
-        System.out.println("Is Palindrome: " + result);
-
-        scanner.close();
+        // Compare strings
+        if (input.equals(reversed)) {
+            System.out.println("Input: " + input);
+            System.out.println("Palindrome: true");
+        } else {
+            System.out.println("Input: " + input);
+            System.out.println("Palindrome: false");
+        }
     }
 }
 
