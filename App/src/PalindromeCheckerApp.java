@@ -1,68 +1,47 @@
 import java.util.*;
 
 /**
- * UseCasePalindromeChecker
- *
- * Use Case 12: Strategy Pattern for Palindrome Algorithms (Advanced)
+ * PalindromeCheckerApp
  *
  * Description:
- * Checks if a string is palindrome using Stack strategy internally.
+ * Checks whether a predefined string is a palindrome
+ * using the two-pointer technique.
+ *
+ * - Compares characters from both ends
+ * - Stops immediately if mismatch found
+ *
+ * @author Student
+ * @version 2.0
  */
-
-import java.util.Scanner;
-import java.util.Stack;
-
-interface PalindromeStrategy {
-    boolean check(String input);
-}
-
-class StackStrategy implements PalindromeStrategy {
-
-    @Override
-    public boolean check(String input) {
-        // Normalize input
-        String normalized = input.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
-
-        // Create a stack to store characters
-        Stack<Character> stack = new Stack<>();
-
-        for (char c : normalized.toCharArray()) {
-            stack.push(c);
-        }
-
-        for (char c : normalized.toCharArray()) {
-            if (c != stack.pop()) return false;
-        }
-
-        return true;
-    }
-}
-
 public class PalindromeCheckerApp {
 
-    private PalindromeStrategy strategy;
-
-    public PalindromeCheckerApp() {
-        // Use StackStrategy internally
-        this.strategy = new StackStrategy();
-    }
-
-    public boolean check(String input) {
-        return strategy.check(input);
-    }
-
+    /**
+     * Application entry point.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
 
-        System.out.print("Input : ");
-        String input = scanner.nextLine();
+        // Predefined string
+        String str = "madam";
 
-        PalindromeCheckerApp app = new PalindromeCheckerApp();
+        int left = 0;
+        int right = str.length() - 1;
+        boolean isPalindrome = true;
 
-        boolean result = app.check(input);
+        // Two-pointer comparison
+        while (left < right) {
+            if (str.charAt(left) != str.charAt(right)) {
+                isPalindrome = false;
+                break;
+            }
+            left++;
+            right--;
+        }
 
-        System.out.println("Is Palindrome? : " + result);
-
-        scanner.close();
+        // Output
+        System.out.println("Input text: " + str);
+        System.out.println("Is Palindrome: " + isPalindrome);
     }
 }
+
