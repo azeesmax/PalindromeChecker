@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * ================================================================
  * MAIN CLASS - UseCase11PalindromeCheckerApp
@@ -15,6 +17,7 @@
  */
 
 import java.util.Scanner;
+import java.util.Stack;
 
 /**
  * PalindromeChecker class encapsulates palindrome logic.
@@ -50,8 +53,18 @@ class PalindromeChecker {
  */
 public class rPalindromeCheckerApp {
 
-    public static void main(String[] args) {
+    private PalindromeStrategy strategy;
 
+    public PalindromeCheckerApp() {
+        // Use StackStrategy internally
+        this.strategy = new StackStrategy();
+    }
+
+    public boolean check(String input) {
+        return strategy.check(input);
+    }
+
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Input: ");
