@@ -1,47 +1,31 @@
 import java.util.*;
 
 /**
- * PalindromeCheckerApp
+ * UseCasePalindromeChecker
  *
  * Description:
- * Checks whether a predefined string is a palindrome
- * using the two-pointer technique.
- *
- * - Compares characters from both ends
- * - Stops immediately if mismatch found
+ * Application entry point of the system.
+ * Displays welcome message and initializes the application.
  *
  * @author Student
- * @version 2.0
+ * @version 1.0
  */
+public class PalindromeCheckerApp {
+
 public class PalindromeCheckerApp {
 
     /**
      * Application entry point.
+     * First method executed by JVM.
      *
      * @param args command line arguments
      */
     public static void main(String[] args) {
 
-        // Predefined string
-        String str = "madam";
+        System.out.println("Welcome to the Palindrome Checker Management System");
+        System.out.println("Version : 1.0");
+        System.out.println("System initialized successfully.");
 
-        int left = 0;
-        int right = str.length() - 1;
-        boolean isPalindrome = true;
-
-        // Two-pointer comparison
-        while (left < right) {
-            if (str.charAt(left) != str.charAt(right)) {
-                isPalindrome = false;
-                break;
-            }
-            left++;
-            right--;
-        }
-
-        // Output
-        System.out.println("Input text: " + str);
-        System.out.println("Is Palindrome: " + isPalindrome);
     }
 }
 
