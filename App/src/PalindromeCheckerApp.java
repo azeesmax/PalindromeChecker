@@ -1,3 +1,5 @@
+import java.util.*;
+
 /**
  * UseCasePalindromeChecker
  *
@@ -8,6 +10,7 @@
  * @author Student
  * @version 1.0
  */
+public class PalindromeCheckerApp {
 
 public class PalindromeCheckerApp {
 
